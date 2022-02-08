@@ -10,7 +10,9 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(express.static('public'));
 
-app.set('layout', './layouts/main');
+
+app.use(expressLayouts)
+app.set('layout', './layouts/main'); 
 app.set('view engine', 'ejs');
 
 const routes = require('./server/routes/recipeRoutes.js')
