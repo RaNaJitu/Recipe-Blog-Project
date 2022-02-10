@@ -26,4 +26,9 @@ const recipeSchema = new mongoose.Schema({
         required:'This field is required'
     }
 });
+
+recipeSchema.index({name: 'text', description:'text'})
+//WildCard Indexing
+recipeSchema.index({"$**": 'text'});
+
 module.exports = mongoose.model('Recipe', recipeSchema)
